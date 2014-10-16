@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html ng-app="store">
+<head>
+	<meta charset="UTF-8">
+	<title>app - angularjs</title>
+	
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+	
+	<style type="text/css">
+        
+		.ng-invalid.ng-dirty {
+			border-color: red;
+		}
+		.ng-valid.ng-dirty {
+			border-color: green;
+		}
+        
+        .product {
+            border: 1px solid #ccc;
+            padding: 1em;
+            float: none;
+            margin: 0 auto;
+            text-align: center;
+            -webkit-border-radius: 12px;
+               -moz-border-radius: 12px;
+                    border-radius: 12px;
+        }
+        
+            .product {
+                margin-bottom: 2em !important;
+            }
+        
+        .product-panels {
+            margin: 2em 0 1em 0;
+        }
+	</style>
+	
+</head>
+<body ng-controller="StoreController as store">
+	
+	<div class="container">
+        
+        <div class="page-header">
+          <h1>Store <small>small store</small></h1>
+        </div>
+		
+        <div ng-repeat="product in store.products" class="row">
+            
+            <div class="col-md-5 product">
+				
+                <product-title> </product-title>
+
+                <img ng-src="{{product.images[0].full}}">
+
+                <product-panels> </product-panels>
+
+                <button class="btn btn-default" ng-show="product.canPurchase">Add to Cart</button>
+            </div>
+            
+		</div>
+        
+	</div>
+
+	<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular.min.js"></script>
+	<script type="text/javascript" src="app.js"></script>
+    <script type="text/javascript" src="product.js"></script>
+</body>
+</html>
